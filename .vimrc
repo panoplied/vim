@@ -11,6 +11,25 @@
 " 'Make Vim more useful' aka 'enter the current millenium' aka 'forget vi'
 set nocompatible
 
+" Turn on filetypes and plugins and indents
+filetype plugin indent on
+
+
+" VIM PLUG
+
+" https://github.com/junegunn/vim-plug - manual here
+
+" Specify a directory for plugins
+call plug#begin('~/.vim/plugged')
+
+" The plugins. Only single quotes allowed (!)
+Plug 'mattn/emmet-vim'
+Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+
+" Initialize plugin system
+call plug#end()
+
+
 
 " INTERFACE
 
@@ -58,9 +77,9 @@ set nocompatible
         set linebreak
 
         " Show ↪ at the beginning of wrapped lines
-        if has("linebreak")
-            let &sbr = nr2char(8618).' '
-        endif
+        " if has("linebreak")
+        "    let &sbr = nr2char(8618).' '
+        " endif
 
         " Copy indent from current line when starting a new one
         set autoindent
@@ -85,14 +104,20 @@ set nocompatible
 
         " Highlight the screen line with the cursor (+syntax)
         " set cursorline
+        " hi CursorLine term=bold cterm=bold guibg=Grey40
 
         " Turn off cursor blinking in normal mode (+GUI)
         set guicursor=n:blinkon0
 
         " Turn off all components and options of the GUI (+GUI)
+        " set guioptions=
 
         " Number of colors
-        set t_Co=256
+        " set t_Co=256
+
+        " True color support
+        " set termguicolors
+
 
     " STATUS LINE
 
@@ -223,11 +248,13 @@ set nocompatible
     set langmap=ёйцукенгшщзхъфывапролджэячсмитьбюЁЙЦУКЕHГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ;`qwertyuiop[]asdfghjkl\\;'zxcvbnm\\,.~QWERTYUIOP{}ASDFGHJKL:\\"ZXCVBNM<>
 
 
-" FOLDING
-
-    " TODO
-
 " ENVIRONMENT
+
+    " Store lots of history entries, cmdline and search patterns
+    set history=1000
+
+
+" FOLDING
 
     " TODO
 
